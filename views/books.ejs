@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('partials/head') %>
+  <body class="bg-gray-100 text-gray-800 font-sans">
+    <div class="text-center py-10">
+      <h1 class="text-4xl font-extrabold text-indigo-700">Juan Luis</h1>
+      <h2 class="text-2xl text-gray-600 mt-2">Books I have read.</h2>
+      <p class="text-gray-500 mt-4">Short reviews to encourage you to read them.</p>
+    </div>
+
+    <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-8 pb-16">
+      <% if (Array.isArray(books) && books.length > 0) { %>
+        <% books.forEach(book => { %>
+          <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition duration-300">
+            <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn || '' %>-M.jpg" alt="Book Cover" class="mx-auto rounded-md mb-4 shadow-sm">
+            <h2 class="text-xl font-semibold text-center mb-2"><%= book.title || 'No title' %></h2>
+            <p class="text-center text-sm text-gray-600 mb-2"><%= book.author || 'Unknown' %></p>
+            <p><strong>ISBN:</strong> <%= book.isbn || 'Not available' %></p>
+            <p><strong>Rating:</strong> <%= book.rating || 'No rated' %>/10</p>
+            <p><strong>Read Date:</strong> <%= book.read_date || 'Not specified' %></p>
+            <p class="mt-2 text-gray-700"><%= book.notes || 'No review' %></p>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p class="text-center text-gray-500">No books available.</p>
+      <% } %>
+    </section>
+  </body>
+</html>

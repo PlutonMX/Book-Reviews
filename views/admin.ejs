@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+ <%- include('partials/head') %>
+  <body class="bg-gradient-to-b from-gray-900 to-gray-700 min-h-screen text-white font-sans">
+
+    <div class="text-center p-8">
+      <h1 class="text-4xl font-extrabold">Juan Luis</h1>
+      <h2 class="text-2xl mt-2 text-gray-300">Books I have read.</h2>
+      <p class="mt-4 text-lg text-gray-400">Short reviews to encourage you to read them.</p>
+    </div>
+
+    <form action="/admin/add-book" method="post" class="max-w-2xl mx-auto bg-white text-gray-900 p-6 rounded-xl shadow-xl space-y-4 mb-10">
+      <input name="title" placeholder="Book Title" required class="w-full border px-4 py-2 rounded-md" />
+      <input name="author" placeholder="Author" required class="w-full border px-4 py-2 rounded-md" />
+      <input name="rating" type="number" min="1" max="10" placeholder="Rating (1-10)" required class="w-full border px-4 py-2 rounded-md" />
+      <input name="read_date" placeholder="Read Date" type = "date" required class="w-full border px-4 py-2 rounded-md" />
+      <input name="isbn" placeholder="ISBN" required class="w-full border px-4 py-2 rounded-md" />
+      <textarea name="review" placeholder="Write your review" class="w-full border px-4 py-2 rounded-md resize-y"></textarea>
+      <button type="submit" class="w-full bg-indigo-700 hover:bg-pink-600 text-white py-2 px-4 rounded-md transition">Post Review</button>
+    </form>
+
+    <section class="max-w-4xl mx-auto space-y-10 px-4">
+      <% books.forEach(book => { %>
+        <div class="bg-white text-gray-800 rounded-xl shadow-lg p-6 space-y-3">
+          <div class="flex gap-6 items-start">
+            <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="Book Cover" class="rounded-md shadow-md" />
+            <div class="flex-1">
+              <h2 class="text-xl font-bold"><%= book.title %> <span class="text-sm font-normal">by <%= book.author %></span></h2>
+              <p><strong>ISBN:</strong> <%= book.isbn %></p>
+              <p><strong>Rating:</strong> <%= book.rating %>/10</p>
+              <p><strong>Read Date:</strong> <%= book.read_date %></p>
+              <p class="mt-2 text-gray-700"><%= book.notes %></p>
+            </div>
+          </div>
+          <div class="flex justify-between mt-4 gap-4">
+            <a href="/admin/edit-book/<%= book.id %>" class="bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600 transition">Edit</a>
+            <form action="/admin/delete-book" method="post">
+              <button type="submit" name="deleteBookId" value="<%= book.id %>" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition">Delete</button>
+            </form>
+          </div>
+        </div>
+      <% }) %>
+    </section>
+    
+  </body>
+</html>

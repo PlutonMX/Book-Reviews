@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+   <%- include('partials/head') %>
+  <body class="bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 min-h-screen flex items-center justify-center text-white font-sans">
+    
+    <form action="/admin/edit-book/<%=book.id%>" method="post" class="bg-white text-gray-800 p-8 rounded-2xl shadow-2xl w-full max-w-xl space-y-5">
+
+      <h1 class="text-3xl font-bold text-center text-indigo-700">Edit Review</h1>
+
+      <div class="space-y-3">
+        <label for="title" class="block font-semibold">Title</label>
+        <input name="title" type="text" value="<%=book.title%>" placeholder="Escribe el título" required class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:outline-none">
+      </div>
+
+      <div class="space-y-3">
+        <label for="author" class="block font-semibold">Author</label>
+        <input name="author" type="text" value="<%=book.author%>" placeholder="Autor del libro" required class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:outline-none">
+      </div>
+
+      <div class="space-y-3">
+        <label for="rating" class="block font-semibold">Rating (1-10)</label>
+        <input name="rating" type="number" value="<%=book.rating%>" min="1" max="10" required class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-pink-500 focus:outline-none">
+      </div>
+
+      <div class="space-y-3">
+        <label for="read_date" class="block font-semibold">Read Date</label>
+        <input name="read_date" type="date" value="<%=book.read_date%>" required class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:outline-none">
+      </div>
+
+      <div class="space-y-3">
+        <label for="isbn" class="block font-semibold">ISBN</label>
+        <input name="isbn" type="text" value="<%=book.isbn%>" placeholder="Código ISBN" required class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:outline-none">
+      </div>
+
+      <div class="space-y-3">
+        <label for="review" class="block font-semibold">Review</label>
+        <textarea name="review" rows="5" placeholder="Escribe tu reseña aquí" class="w-full border border-gray-300 rounded-md px-3 py-2 resize-y focus:ring-indigo-500 focus:outline-none"><%=book.notes%></textarea>
+      </div>
+
+      <button type="submit" class="w-full bg-indigo-600 hover:bg-pink-600 text-white py-3 px-6 rounded-full font-semibold transition duration-300">
+        Save Changes
+      </button>
+      
+    </form>
+  </body>
+</html>

@@ -72,7 +72,7 @@ Make sure PostgreSQL is running and configured properly. Update database credent
 
 ---
 
-📂 Project Structure
+## 📂 Project Structure
 
 
 📦 book-reviews/
@@ -117,7 +117,7 @@ Make sure PostgreSQL is running and configured properly. Update database credent
 
 ---
 
-🔐 Admin Credentials
+## 🔐 Admin Credentials
 
 The admin username and password are stored in the database.
 
@@ -125,7 +125,7 @@ Tip: For better security, consider encrypting the password using bcrypt.
 
 ---
 
-🤝 Contributing
+## 🤝 Contributing
 
 Suggestions or improvements are welcome!
 
@@ -133,13 +133,13 @@ Fork the repo, open a pull request or reach out directly.
 
 ---
 
-## Seguridad
+## Security
 
 - 🔐Login protected witg [bcrypt](https://www.npmjs.com/package/bcrypt)for hashing passwords.
 - 🚫 Protectiong agasint brute force attacks with [express-rate-limit](https://www.npmjs.com/package/express-rate-limit).
 
 ---
-👨‍💻 Author
+ ## 👨‍💻 Author
 
 
 Juan Luis
@@ -147,7 +147,7 @@ Juan Luis
 GitHub Profile
 
 ---
-📜 License
+##  📜 License
 
 
 This project is personal and intended as a capstone portfolio project.

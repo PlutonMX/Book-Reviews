@@ -55,6 +55,8 @@ Visitors can read reviews written by the author (Juan Luis), and an admin login 
 
 - Express-rate-limit
 
+- PostgreSQL
+
 ---
 
 ## 🛠️ Local Setup

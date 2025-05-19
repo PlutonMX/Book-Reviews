@@ -3,3 +3,6 @@ dist/
 .env
 *.log
 tailwindcss.exe
+inserts.sql
+queries.sql
+export-books.js

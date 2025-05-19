@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Clases necesarias aunque no se detecten automáticamente */
+@layer utilities {
+  .text-red-500 {}
+  .bg-green-500 {}
+  .hover:bg-blue-700 {}
+}

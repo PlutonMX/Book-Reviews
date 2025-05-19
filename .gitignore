@@ -1,4 +1,5 @@
 node_modules/
+dist/
+.env
+*.log
 tailwindcss.exe
-src/input.css
-tailwind.config.js

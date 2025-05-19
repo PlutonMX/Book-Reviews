@@ -3,10 +3,12 @@ import pg from 'pg';
 import bodyParser  from 'body-parser';
 import axios from 'axios';
 import cookieParser from 'cookie-parser';
+import bcrypt from 'bcrypt';
+import rateLimit from 'express-rate-limit';
 
 
 
-//Setting up the server
+
 const app = express();
 const port = 3000;
 
@@ -59,7 +61,7 @@ app.use(express.static("public"));
 
 //Testing the connection to the database
 try {
-  await db.query("SELECT 1"); // consulta rápida para probar la conexión
+  await db.query("SELECT 1");
   console.log(" Conexión a la base de datos exitosa");
 } catch (err) {
   console.error(" No se pudo conectar a la base de datos:", err);
@@ -81,6 +83,15 @@ try {
     res.status(500).send("Error al obtener los libros");
 }
 });
+
+const loginLimiter = rateLimit({
+  windowMs: 5 * 60 * 1000, // 5 minutos
+  max: 5, // Máximo 5 intentos por IP
+  message: "Demasiados intentos de inicio de sesión. Inténtalo de nuevo más tarde.",
+});
+
+
+;
 //Render the login admin page
 app.get("/admin-login", (req, res) => {
   res.render("admin-login.ejs");
@@ -88,29 +99,29 @@ app.get("/admin-login", (req, res) => {
 })
 
 //Route to the login admin page
-app.post("/admin-login", async (req, res) => {
+app.post("/admin-login", loginLimiter, async (req, res) => {
   const { username, password } = req.body;
 
   try {
     const result = await db.query("SELECT * FROM admin WHERE username = $1", [username]);
-    const admin = result.rows[0]; // Esto te da el primer admin que coincida
+    const admin = result.rows[0]; 
 
     if (!admin) {
       return res.send("Invalid credentials");
     }
 
-    if (admin.pass === password) {
-      // Crear cookie de sesión
-      res.cookie("adminSession", "admin123", {
-        httpOnly: true,
-        secure: true, 
-        signed: true,
-        maxAge: 1000 * 60 * 60, 
-      });
-      res.redirect("/admin");
-    } else {
-      res.send("Invalid credentials");
-    }
+   const passwordMatch = await bcrypt.compare(password, admin.pass);
+if (passwordMatch) {
+  res.cookie("adminSession", "admin123", {
+    httpOnly: true,
+    secure: true,
+    signed: true,
+    maxAge: 1000 * 60 * 60, 
+  });
+  res.redirect("/admin");
+} else {
+  res.send("Invalid credentials");
+}
 
   } catch (error) {
     console.error("You can't access this page:", error);

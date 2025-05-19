@@ -14,7 +14,7 @@ Visitors can read reviews written by the author (Juan Luis), and an admin login 
 
 ## 🌍 Live Demo
 
-[🔗 View on Render]([https://your-render-link.com](https://book-reviews-jg5o.onrender.com/) 
+[🔗 View on Render]([https://your-render-link.com](https://book-reviews-jg5o.onrender.com/))
 
 ---
 

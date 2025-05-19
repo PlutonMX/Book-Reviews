@@ -51,6 +51,10 @@ Visitors can read reviews written by the author (Juan Luis), and an admin login 
 
 - Cookie-parser
 
+- Bcrypt
+
+- Express-rate-limit
+
 ---
 
 ## 🛠️ Local Setup
@@ -65,6 +69,8 @@ npm install
 node server.js
 
 Make sure PostgreSQL is running and configured properly. Update database credentials in your .env or connection settings.
+
+---
 
 📂 Project Structure
 
@@ -109,11 +115,15 @@ Make sure PostgreSQL is running and configured properly. Update database credent
 
  ┗ 📄 README.md
 
+---
+
 🔐 Admin Credentials
 
 The admin username and password are stored in the database.
 
 Tip: For better security, consider encrypting the password using bcrypt.
+
+---
 
 🤝 Contributing
 
@@ -121,7 +131,14 @@ Suggestions or improvements are welcome!
 
 Fork the repo, open a pull request or reach out directly.
 
+---
 
+## Seguridad
+
+- 🔐Login protected witg [bcrypt](https://www.npmjs.com/package/bcrypt)for hashing passwords.
+- 🚫 Protectiong agasint brute force attacks with [express-rate-limit](https://www.npmjs.com/package/express-rate-limit).
+
+---
 👨‍💻 Author
 
 
@@ -129,7 +146,7 @@ Juan Luis
 
 GitHub Profile
 
-
+---
 📜 License
 
 

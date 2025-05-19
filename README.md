@@ -14,7 +14,7 @@ Visitors can read reviews written by the author (Juan Luis), and an admin login 
 
 ## 🌍 Live Demo
 
-[🔗 View on Render](https://your-render-link.com) <!-- Replace with actual link -->
+[🔗 View on Render](https://your-render-link.com) 
 
 ---
 
@@ -59,7 +59,6 @@ Visitors can read reviews written by the author (Juan Luis), and an admin login 
 
 ## 🛠️ Local Setup
 
-``
 git clone https://github.com/your-username/book-reviews.git
 
 cd book-reviews
@@ -135,7 +134,7 @@ Fork the repo, open a pull request or reach out directly.
 
 ## Security
 
-- 🔐Login protected witg [bcrypt](https://www.npmjs.com/package/bcrypt)for hashing passwords.
+- 🔐Login protected witg [bcrypt](https://www.npmjs.com/package/bcrypt) for hashing passwords.
 - 🚫 Protectiong agasint brute force attacks with [express-rate-limit](https://www.npmjs.com/package/express-rate-limit).
 
 ---

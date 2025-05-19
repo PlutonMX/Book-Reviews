@@ -14,7 +14,7 @@ Visitors can read reviews written by the author (Juan Luis), and an admin login 
 
 ## 🌍 Live Demo
 
-[🔗 View on Render](https://your-render-link.com) <!-- Replace with actual link -->
+[🔗 View on Render][https://your-render-link.com](https://book-reviews-jg5o.onrender.com/
 
 ---
 
@@ -51,11 +51,16 @@ Visitors can read reviews written by the author (Juan Luis), and an admin login 
 
 - Cookie-parser
 
+- Bcrypt
+
+- Express-rate-limit
+
+- PostgreSQL
+
 ---
 
 ## 🛠️ Local Setup
 
-``
 git clone https://github.com/your-username/book-reviews.git
 
 cd book-reviews
@@ -66,7 +71,9 @@ node server.js
 
 Make sure PostgreSQL is running and configured properly. Update database credentials in your .env or connection settings.
 
-📂 Project Structure
+---
+
+## 📂 Project Structure
 
 
 📦 book-reviews/
@@ -109,28 +116,39 @@ Make sure PostgreSQL is running and configured properly. Update database credent
 
  ┗ 📄 README.md
 
-🔐 Admin Credentials
+---
+
+## 🔐 Admin Credentials
 
 The admin username and password are stored in the database.
 
 Tip: For better security, consider encrypting the password using bcrypt.
 
-🤝 Contributing
+---
+
+## 🤝 Contributing
 
 Suggestions or improvements are welcome!
 
 Fork the repo, open a pull request or reach out directly.
 
+---
 
-👨‍💻 Author
+## Security
+
+- 🔐Login protected witg [bcrypt](https://www.npmjs.com/package/bcrypt) for hashing passwords.
+- 🚫 Protectiong agasint brute force attacks with [express-rate-limit](https://www.npmjs.com/package/express-rate-limit).
+
+---
+ ## 👨‍💻 Author
 
 
 Juan Luis
 
 GitHub Profile
 
-
-📜 License
+---
+##  📜 License
 
 
 This project is personal and intended as a capstone portfolio project.
